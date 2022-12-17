@@ -1,12 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
+
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whatsapp viewer</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <title>Whatsapp Chat Viewer</title>
 </head>
+
 <body>
-    
+    <nav class="navbar sticky-top navbar-expand-lg navbar-inverse">
+        <a class="navbar-brand nav-back" href="/"> <strong>Whatsapp Chat Viewer</strong> </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item nav-back" style="display:none;"><a class="nav-link"><span
+                            class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> View another chat</a>
+                </li>
+                <li class="download-link nav-item" style="display: none;"><a class="nav-link">Download</a></li>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Filter</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <form name="dateform" action="filter.js" id="date">
+                            <input type="text" name="text">
+                            <input type="submit" value="submit" onclick="checkdate()">
+                        </form>
+                    </div>
+                </div>
+            </ul>
+        </div>
+        
+    </nav>
+    <div class="container-fluid intro-panels">
+        <hr>
+        <div class="alert alert-danger" role="alert" id="error_message_box" style="display:none"></div>
+        <div class="alert alert-success" role="alert">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-10 offset-md-1">
+                        <h4 class="text-center">
+                            Welcome to <strong>Whatsapp Chat Viewer</strong>
+                        </h4>
+                        <hr>
+                        <form enctype="multipart/form-data">
+                            <div class="form-group">
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="form_file_field">
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <center>
+                                    <input type="submit" class="btn btn-success" id="submit_button"
+                                        value="Get Conversation">
+                                </center>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+   
+    <script>
+      
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("myDropdown");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+                txtValue = a[i].textContent || a[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    a[i].style.display = "";
+                } else {
+                    a[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+  
+   
 </body>
+
 </html>
