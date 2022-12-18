@@ -2,7 +2,7 @@
 
 # Whatsapp Chat Viewer
 
-In the existing system, when we try to export the whatsapp chats it is viewed in text file format and it is very hard to read and sort messages from it. Also it is hard to take messages from whatsapp using date. So we have introduced a whatsapp parser app that will convert the whatsapp chat text file into a whatsapp view format and filter messages using dates and file format.
+In the existing system, when we try to export the whatsapp chats it is viewed in text file format and it is very hard to read and sort messages from it. Also it is hard to take messages from whatsapp using date. So we have introduced a whatsapp parser app that will convert the whatsapp chat text file into a whatsapp view format and filter messages using dates. It can be also made to filter messages using file format.
 
 
 
