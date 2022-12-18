@@ -31,6 +31,10 @@ In the existing system, when we try to export the whatsapp chats it is viewed in
 3. Jqery
 4. Web3
 5. CSV
+
+## BUGS or ERRORS!!
+1. Some times while flask app is loading script file does not load properly leading to incorrect working of filter and dropdown
+
 ## Authors
 
 - [@anjalirajendran](.)
