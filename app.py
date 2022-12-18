@@ -1,11 +1,9 @@
 import os
 import uuid
 import zipfile
- 
 from flask import Flask, request, render_template, jsonify, redirect, url_for
-
-from constants import DEFAULT_ERROR_MESSAGE
-from utils import get_parsed_file, empty_directory
+from files import get_parsed_file,temp_directory
+from const import DEFAULT_ERROR_MESSAGE
 
 app = Flask(__name__)
 IS_PROD = os.environ.get("IS_PROD", False)
@@ -18,7 +16,7 @@ def allowed_file(filename):
 
 @app.route('/parse-file', methods=['POST'])
 def parse_file():
-    empty_directory("static/chat")
+    temp_directory("static/chat")
 
     file_req = request.files
     if len(file_req) == 0:
@@ -66,13 +64,13 @@ def parse_file():
             }
 
         # clears out attachments and conversations
-        empty_directory("conversations")
+        temp_directory("conversations")
     return jsonify(response), 200
 
 
 @app.route('/', methods=['GET'])
 def main():
-    empty_directory("static/chat")
+    temp_directory("static/chat")
     ctx = {
         'is_prod': IS_PROD,
         'default_error_message': DEFAULT_ERROR_MESSAGE,
