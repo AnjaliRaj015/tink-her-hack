@@ -6,4 +6,4 @@
 
 ### This is a repository containing the whatsapp chat text parsed file using json and how it can be viewed in whatsapp chat format
 
-####### for viewing out the feature we tried to add (date and file format filter) please go to  
+###### for viewing out the feature we tried to add (date and file format filter) please go to  
